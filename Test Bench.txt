@@ -1,0 +1,57 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity FourBitAdderInstructions_TB is
+
+end FourBitIntructions_TB;
+
+architecture Behavioral of FourBitIntructions_TB is
+
+component FourBitAdderInstructions is
+	Port ( A : in STD_LOGIC_VECTOR (3 downto 0);
+	          B : in STD_LOGIC_VECTOR(3 downto 0);
+	          carryIn : in std_logic;
+	          carryOut : out std_logic;
+	Sum : out STD_LOGIC_VECTOR (3 downto 0));
+end component;
+
+signal A : STD_LOGIC_VECTOR (3 downto 0));
+signal B : STD_LOGIC_VECTOR (3 downto 0));
+signal carryIn : std_logic;
+signal carryOut : std_logic;
+signal Sum : STD_LOGIC_VECTOR (3 downto 0));
+
+begin
+
+UUT: FourBitAdderInstructions port map(A,B,carryIn,carryOut,Sum);
+
+process
+begin
+A <= “0011”;B<=”0010”;carryIn<=’0’;wait for 10ns;
+
+A <= “1010”;B<=”0010”;carryIn<=’0’;wait for 10ns;
+
+A <= “1100”;B<=”0001”;carryIn<=’0’;wait for 10ns;
+
+A <= “1001”;B<=”0100”;carryIn<=’0’;wait for 10ns;
+
+A <= “0011”;B<=”1000”;carryIn<=’1’;wait for 10ns;
+
+A <= “0101”;B<=”1010”;carryIn<=’0’;wait for 10ns;
+
+A <= “1110”;B<=”0010”;carryIn<=’0’;wait for 10ns;
+
+A <= “1111”;B<=”1111”;carryIn<=’1’;wait for 10ns;
+
+A <= “1110”;B<=”1110”;carryIn<=’1’;wait for 10ns;
+
+A <= “0000”;B<=”1000”;carryIn<=’1’;wait for 10ns;
+
+A <= “1001”;B<=”1100”;carryIn<=’0’;wait for 10ns;
+
+A <= “0001”;B<=”1111”;carryIn<=’1’;wait for 10ns;
+
+wait;
+
+end process;
+end Behavioral;
